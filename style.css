@@ -13,13 +13,13 @@
   --grey-text: #aaa39a;
   --line: #45403c;
 }
-
 body {
-  background-color: var(--black);
-  color: var(--light-text);
   font-family: Arial, Helvetica, sans-serif;
+   background-color: var(--black);
+  color: var(--light-text);
   line-height: 1.5;
 }
+
 
 /*
   The layout remains close to the teacher's original version.
@@ -32,11 +32,18 @@ header {
   text-align: center;
 }
 
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: normal;
+}
+
 header h1 {
   color: var(--gold);
   font-size: 2rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  
 }
 
 nav {
