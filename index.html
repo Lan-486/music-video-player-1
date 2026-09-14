@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--
+      This page is based on the media player structure provided by the assignment.
+      I selected the music video context because the final media will be a
+      live cover performance by a band. The video source is not added yet.
+      -->
+    <title>COVER MUSIC VIDEO</title>
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+   
+    <header>
+      <h1>Killkiss</h1>
+    </header>
+
+    <!-- Navigation is kept from the original structure for now. -->
+    <nav>
+      <ul>
+        <li><a href="#player">Player</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#credits">Credits</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <!-- Main media player section -->
+      <section id="player" class="media-player">
+        <div class="video-container">
+          <!--
+            The video element is kept from the original website.
+            The source will be added after learning how to import
+            an external video resource in class.
+          -->
+          <video id="custom-video-player">
+            Your browser does not support the video element.
+          </video>
+
+          <div class="video-placeholder">
+            <p>Video preview</p>
+            <span>Media source will be added later</span>
+          </div>
+        </div>
+
+        <div class="track-information">
+          <h2>Killkiss</h2>
+          <p>Yoiharu · Cover MV</p>
+        </div>
+
+        <!--
+          These controls are visual placeholders at this stage.
+          JavaScript functionality will be added gradually.
+        -->
+        <div class="custom-controls">
+          <button id="play-pause-btn" type="button">
+            Play
+          </button>
+
+          <div class="progress-bar" aria-label="Video progress">
+            <span id="progress-bar-fill"></span>
+          </div>
+
+          <button id="mute-btn" type="button">
+            Mute
+          </button>
+
+          <button id="fullscreen-btn" type="button">
+            Fullscreen
+          </button>
+        </div>
+      </section>
+
+      <section id="about" class="content-section">
+        <h2>About this video</h2>
+        <p>
+          This website presents a cover music video through a custom
+          media player interface.
+        </p>
+      </section>
+
+      <section id="credits" class="content-section">
+        <h2>Credits</h2>
+        <p>
+          Video by Yoiharu. Used with permission for RMIT Interactive
+          Media Assignment 2.
+        </p>
+        <p>
+          Original song: “KiLLKiSS” by Ave Mujica.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Music Video Player · Assignment 2</p>
+      <p>Icons will be credited after they are added.</p>
+    </footer>
+  </body>
+</html>

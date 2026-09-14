@@ -1,0 +1,190 @@
+:root {
+  /*
+    The colour palette is based on the music video:
+    black is used as the main background, red creates emphasis,
+    and gold is used for small details and important controls.
+  */
+  --black: #111111;
+  --dark-panel: #1c1c1c;
+  --red: #8e1d2c;
+  --bright-red: #b72d3e;
+  --gold: #c9a45c;
+  --light-text: #f2eee6;
+  --grey-text: #aaa39a;
+  --line: #45403c;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--light-text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+/*
+  The layout remains close to the teacher's original version.
+  I am changing the visual style without replacing the whole structure.
+*/
+header {
+  background-color: var(--dark-panel);
+  border-bottom: 3px solid var(--red);
+  padding: 28px 0;
+  text-align: center;
+}
+
+header h1 {
+  color: var(--gold);
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+nav {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  gap: 35px;
+  justify-content: center;
+  list-style: none;
+}
+
+nav a {
+  color: var(--light-text);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 950px;
+  padding: 55px 30px 80px;
+}
+
+.media-player {
+  background-color: var(--dark-panel);
+  border: 1px solid var(--line);
+  padding: 28px;
+}
+
+.video-container {
+  background-color: #050505;
+  border: 1px solid var(--gold);
+  height: 500px;
+  position: relative;
+}
+
+video {
+  height: 100%;
+  width: 100%;
+}
+
+.video-placeholder {
+  align-items: center;
+  color: var(--grey-text);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+
+.video-placeholder p {
+  color: var(--gold);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.video-placeholder span {
+  font-size: 0.85rem;
+}
+
+.track-information {
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+}
+
+.track-information h2 {
+  color: var(--light-text);
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.track-information p {
+  color: var(--grey-text);
+  margin-top: 5px;
+}
+
+.custom-controls {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+  padding-top: 24px;
+}
+
+.custom-controls button {
+  background-color: var(--red);
+  border: 1px solid var(--gold);
+  color: var(--light-text);
+  cursor: pointer;
+  padding: 10px 16px;
+}
+
+.custom-controls button:hover {
+  background-color: var(--bright-red);
+}
+
+.progress-bar {
+  background-color: #3b3632;
+  height: 7px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.progress-bar span {
+  background-color: var(--gold);
+  display: block;
+  height: 100%;
+  width: 0;
+}
+
+.content-section {
+  border-bottom: 1px solid var(--line);
+  margin-top: 55px;
+  padding-bottom: 28px;
+}
+
+.content-section h2 {
+  color: var(--gold);
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.content-section p {
+  color: var(--grey-text);
+  max-width: 650px;
+}
+
+footer {
+  background-color: var(--dark-panel);
+  border-top: 2px solid var(--red);
+  color: var(--grey-text);
+  padding: 25px;
+  text-align: center;
+}
+
+footer p + p {
+  margin-top: 5px;
+}
