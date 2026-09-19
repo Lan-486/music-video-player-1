@@ -46,34 +46,40 @@
     </nav>
 
     <main class="container">
-      <!-- Main media player section -->
       <section id="player" class="media-player">
-        <div class="video-container">
-          <!--
-            The video element is kept from the original website.
-            The source will be added after learning how to import
-            an external video resource in class.
-          -->
-          <video id="custom-video-player">
-            Your browser does not support the video element.
-          </video>
+     <div class="video-container">
+     <!-- video -->
+     </div>
 
-          <div class="video-placeholder">
-            <p>Video preview</p>
-            <span>Media source will be added later</span>
-          </div>
-        </div>
+     <div class="player-info">
+     <div class="track-information">
+      <h2>KiLLKiSS</h2>
+      <p>Yoiharu · Cover MV</p>
+     </div>
 
-        <div class="track-information">
-          <h2>KiLLKiSS</h2>
-          <p>Yoiharu · Cover MV</p>
-        </div>
+     <div class="custom-controls">
+      <!-- play button, progress bar, mute, fullscreen -->
+     </div>
 
+     <p class="player-note">
+      A cover music video by Yoiharu.
+     </p>
+     </div>
         <!--
           These controls are visual placeholders at this stage.
           JavaScript functionality will be added gradually.
         -->
         <div class="custom-controls">
+          <!--
+  These buttons replace anchor links because the navigation now
+  switches visible content instead of scrolling to another section.
+
+  Reference:
+  MDN Web Docs. “The Button element.”
+  https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button
+
+  Accessed 19 September 2026.
+-->
           <button id="play-pause-btn" type="button">
             <img
               id="play-pause-img"
@@ -95,15 +101,16 @@
           </button>
         </div>
       </section>
-       <!--
-       These buttons replace anchor links because the navigation now
-       switches visible content instead of scrolling to another section.
-       Reference:
-       MDN Web Docs. “hidden HTML global attribute.”
-       https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/hidden
+     <!--
+  The hidden attribute keeps this section invisible until
+  the user selects the About button.
 
-        Accessed 19 September 2026.
-       -->
+  Reference:
+  MDN Web Docs. “hidden HTML global attribute.”
+  https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/hidden
+
+  Accessed 19 September 2026.
+-->
       <section id="about" class="content-section" hidden>
         <h2>About this video</h2>
         <p>

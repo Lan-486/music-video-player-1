@@ -91,24 +91,40 @@ nav a:hover {
   flex: 1;
   overflow: hidden;
   margin: 0 auto;
-  max-width: 950px;
-  padding: 18px 30px 20px;
+  max-width: 1400px;
+  padding: 38px 45px 20px;
   width: 100%;
 }
 
+/*
+  I changed the original vertical player layout into a two-column layout.
+  The video remains the main focus, while the song information and controls
+  are placed in a separate panel beside it.
+
+  Reference:
+  MDN Web Docs. “CSS grid layout.”
+  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout
+
+  Accessed 19 September 2026.
+*/
 .media-player {
   background-color: var(--dark-panel);
   border: 1px solid var(--line);
- margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  margin: 0 auto;
   padding: 16px;
   width: 100%;
+  gap: 0;
 }
 
 .video-container {
   background-color: #050505;
   border: 1px solid var(--gold);
+  border-left: 5px solid var(--red);
   height: 500px;
   position: relative;
+  width: 100%;
 }
 
 video {
@@ -139,22 +155,58 @@ video {
 .video-placeholder span {
   font-size: 0.85rem;
 }
+/*
+  Flexbox arranges the song title, controls and description
+  vertically inside the right-hand information panel.
+
+  Reference:
+  MDN Web Docs. “CSS flexible box layout.”
+  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout
+
+  Accessed 19 September 2026.
+*/
+.player-info {
+  background-color: #24171a;
+  border-left: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+}
+
+.player-info .custom-controls {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 35px;
+  padding-top: 0;
+  width: 100%;
+}
+
+.player-note {
+  border-top: 1px solid var(--line);
+  color: var(--grey-text);
+  font-size: 0.8rem;
+  margin-top: 35px;
+  padding-top: 18px;
+}
 
 .track-information {
   border-bottom: 1px solid var(--line);
-  padding: 10px 0;
+  padding: 0 0 20px;
 }
 
 .track-information h2 {
   color: var(--light-text);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.4rem;
+  font-size: 2.3rem;
   font-weight: normal;
 }
 
 .track-information p {
   color: var(--grey-text);
-  margin-top: 2px;
+  margin-top: 8px;
 }
 
 .custom-controls {
