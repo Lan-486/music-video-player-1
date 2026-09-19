@@ -174,15 +174,6 @@ video {
   padding: 50px;
 }
 
-.player-info .custom-controls {
-  align-items: stretch;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 35px;
-  padding-top: 0;
-  width: 100%;
-}
 
 .player-note {
   border-top: 1px solid var(--line);
@@ -274,5 +265,184 @@ footer {
 footer p + p {
   margin-top: 5px;
 }
+/*
+  The player is divided into two columns:
+  the left column contains the video and controls,
+  while the right column contains navigation and information.
 
+  MDN reference:
+  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout
+*/
 
+.media-player {
+  display: grid;
+  gap: 0;
+  grid-template-columns: minmax(0, 2.2fr) minmax(300px, 1fr);
+  width: 100%;
+}
+
+.player-main {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.video-container {
+  height: 500px;
+  position: relative;
+  width: 100%;
+}
+
+.player-info {
+  background-color: #24171a;
+  border-left: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  grid-column: 2;
+  grid-row: 1;
+  justify-content: center;
+  min-width: 0;
+  padding: 50px;
+}
+
+/*
+  Controls are displayed in a horizontal row under the video.
+*/
+.player-main .custom-controls {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding-top: 18px;
+  width: 100%;
+}
+
+.player-main .custom-controls button {
+  flex: 0 0 auto;
+}
+
+.player-main .progress-bar {
+  flex: 1;
+  width: auto;
+}
+
+/*
+  The right-side navigation controls information,
+  not the video playback.
+*/
+.player-navigation {
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 18px;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+}
+
+.player-navigation .nav-button {
+  background: transparent;
+  border: 0;
+  color: var(--grey-text);
+  cursor: pointer;
+  padding: 4px 0;
+  text-transform: uppercase;
+}
+
+.player-navigation .nav-button:hover,
+.player-navigation .nav-button.active {
+  color: var(--gold);
+}
+
+/*
+  The page uses a vertical flex layout so that the footer
+  stays at the bottom of the viewport.
+
+  MDN reference:
+  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout
+*/
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/*
+  The container has space on both sides instead of touching
+  the browser edges. The larger top and bottom padding gives
+  the player more breathing room.
+
+  MDN reference:
+  https://developer.mozilla.org/en-US/docs/Web/CSS/padding
+*/
+.container {
+  box-sizing: border-box;
+  flex: 1;
+  margin: 0 auto;
+  max-width: 1700px;
+  min-height: 0;
+  padding: 48px 40px 42px;
+  width: calc(100% - 80px);
+}
+
+/*
+  Increasing the minimum height creates a larger central
+  player area while preserving the two-column structure.
+*/
+.media-player {
+  min-height: 680px;
+}
+
+/*
+  The video remains large and the controls stay underneath it.
+*/
+.video-container {
+  height: 560px;
+}
+
+.player-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/*
+  The footer is part of the normal flex layout.
+  It is not fixed over the player.
+*/
+footer {
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+/*
+  Each information view occupies the same right-side panel.
+  The hidden attribute controls which view is visible.
+
+  MDN reference:
+  https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/hidden
+*/
+
+.info-view {
+  min-height: 280px;
+}
+
+.info-view h2 {
+  color: var(--light-text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  font-weight: normal;
+  margin-bottom: 18px;
+}
+
+.info-view p {
+  color: var(--grey-text);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
