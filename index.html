@@ -25,9 +25,23 @@
     <!-- Navigation is kept from the original structure for now. -->
     <nav>
       <ul>
-        <li><a href="#player">Player</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#credits">Credits</a></li>
+         <li>
+      <button class="nav-button active" data-section="player">
+        Player
+      </button>
+    </li>
+
+    <li>
+      <button class="nav-button" data-section="about">
+        About
+      </button>
+    </li>
+
+    <li>
+      <button class="nav-button" data-section="credits">
+        Credits
+      </button>
+    </li>
       </ul>
     </nav>
 
@@ -81,8 +95,16 @@
           </button>
         </div>
       </section>
+       <!--
+       These buttons replace anchor links because the navigation now
+       switches visible content instead of scrolling to another section.
+       Reference:
+       MDN Web Docs. “hidden HTML global attribute.”
+       https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/hidden
 
-      <section id="about" class="content-section">
+        Accessed 19 September 2026.
+       -->
+      <section id="about" class="content-section" hidden>
         <h2>About this video</h2>
         <p>
           This website presents a cover music video through a custom
@@ -90,7 +112,7 @@
         </p>
       </section>
 
-      <section id="credits" class="content-section">
+      <section id="credits" class="content-section" hidden>
         <h2>Credits</h2>
         <p>
           Video by Yoiharu. Used with permission for RMIT Interactive

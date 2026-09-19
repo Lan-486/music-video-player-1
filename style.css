@@ -18,6 +18,8 @@ body {
    background-color: var(--black);
   color: var(--light-text);
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -30,6 +32,7 @@ header {
   border-bottom: 3px solid var(--red);
   padding: 28px 0;
   text-align: center;
+  flex-shrink: 0;
 }
 
 h1,
@@ -48,8 +51,9 @@ header h1 {
 
 nav {
   border-bottom: 1px solid var(--line);
-  padding: 18px 0;
+  padding: 10px 0;
   text-align: center;
+  flex-shrink: 0;
 }
 
 nav ul {
@@ -69,16 +73,35 @@ nav a:hover {
   color: var(--gold);
 }
 
+.nav-button {
+  background: none;
+  border: none;
+  color: var(--light-text);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+.nav-button:hover,
+.nav-button.active {
+  color: var(--gold);
+}
+
 .container {
+  flex: 1;
+  overflow: hidden;
   margin: 0 auto;
   max-width: 950px;
-  padding: 55px 30px 80px;
+  padding: 18px 30px 20px;
+  width: 100%;
 }
 
 .media-player {
   background-color: var(--dark-panel);
   border: 1px solid var(--line);
-  padding: 28px;
+ margin: 0 auto;
+  padding: 16px;
+  width: 100%;
 }
 
 .video-container {
@@ -119,25 +142,27 @@ video {
 
 .track-information {
   border-bottom: 1px solid var(--line);
-  padding: 22px 0;
+  padding: 10px 0;
 }
 
 .track-information h2 {
   color: var(--light-text);
-  font-size: 1.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
   font-weight: normal;
 }
 
 .track-information p {
   color: var(--grey-text);
-  margin-top: 5px;
+  margin-top: 2px;
 }
 
 .custom-controls {
   align-items: center;
   display: flex;
   gap: 15px;
-  padding-top: 24px;
+  padding-top: 12px;
+  width: 100%;
 }
 
 .custom-controls button {
@@ -188,10 +213,14 @@ footer {
   background-color: var(--dark-panel);
   border-top: 2px solid var(--red);
   color: var(--grey-text);
-  padding: 25px;
+  flex-shrink: 0;
+  padding: 10px;
   text-align: center;
+  width: 100%;
 }
 
 footer p + p {
   margin-top: 5px;
 }
+
+
