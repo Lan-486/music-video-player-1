@@ -121,7 +121,6 @@ nav a:hover {
 .video-container {
   background-color: #050505;
   border: 1px solid var(--gold);
-  border-left: 5px solid var(--red);
   height: 500px;
   position: relative;
   width: 100%;
@@ -279,6 +278,8 @@ footer p + p {
   gap: 0;
   grid-template-columns: minmax(0, 2.2fr) minmax(300px, 1fr);
   width: 100%;
+   height: 680px;
+  min-height: 0;
 }
 
 .player-main {
@@ -286,6 +287,7 @@ footer p + p {
   display: flex;
   flex-direction: column;
   min-width: 0;
+   min-height: 0;
 }
 
 .video-container {
@@ -301,9 +303,12 @@ footer p + p {
   flex-direction: column;
   grid-column: 2;
   grid-row: 1;
-  justify-content: center;
+  justify-content: flex-start;
   min-width: 0;
   padding: 50px;
+  min-height: 0;
+  overflow: hidden;
+  height: 100%;
 }
 
 /*
@@ -430,7 +435,11 @@ footer {
 */
 
 .info-view {
-  min-height: 280px;
+   flex: 1 1 auto;
+  height: 0;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
 .info-view h2 {
@@ -445,4 +454,108 @@ footer {
   color: var(--grey-text);
   line-height: 1.7;
   margin-bottom: 16px;
+}
+
+/*
+  The volume slider uses the same gold palette
+  as the rest of the media player.
+*/
+
+#volume-slider {
+  appearance: none;
+  background: var(--line);
+  border-radius: 0;
+  cursor: pointer;
+  height: 5px;
+  width: 90px;
+}
+
+/* Gold progress handle for Chromium browsers */
+#volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  background: var(--gold);
+  border: 1px solid var(--light-text);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+}
+
+/* Gold progress handle for Firefox */
+#volume-slider::-moz-range-thumb {
+  background: var(--gold);
+  border: 1px solid var(--light-text);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+}
+
+.credits-list {
+  color: var(--grey-text);
+  list-style: none;
+  margin: 18px 0 28px;
+  padding: 0;
+}
+
+.credits-list li {
+  margin-bottom: 8px;
+}
+
+.credits-list strong {
+  color: var(--light-text);
+  font-weight: normal;
+}
+
+.info-view h3 {
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  margin: 24px 0 12px;
+  text-transform: uppercase;
+}
+
+/*
+  The information panel keeps the same height as the player.
+  Long credit content scrolls inside the panel instead of
+  increasing the height of the whole page.
+
+  MDN references:
+  https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y
+  https://developer.mozilla.org/en-US/docs/Web/CSS/min-height
+*/
+
+.player-info {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.info-view {
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/*
+  A smaller scrollbar keeps the visual style subtle
+  and prevents the credits panel from looking crowded.
+*/
+.info-view::-webkit-scrollbar {
+  width: 5px;
+}
+
+.info-view::-webkit-scrollbar-track {
+  background: #2b2224;
+}
+
+.info-view::-webkit-scrollbar-thumb {
+  background: var(--gold);
+}
+
+/*
+  The navigation should not shrink when the Credits content
+  becomes longer.
+*/
+.player-navigation {
+  flex: 0 0 auto;
 }

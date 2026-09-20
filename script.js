@@ -1,3 +1,6 @@
+const volumeSlider = document.querySelector("#volume-slider");
+let previousVolume = 1;
+const muteImg = document.querySelector("#mute-img");
 const video = document.querySelector("#custom-video-player");
 const playPauseBtn = document.querySelector("#play-pause-btn");
 const playPauseImg = document.querySelector("#play-pause-img");
@@ -108,7 +111,18 @@ progressTrack.addEventListener("click", (event) => {
 */
 muteBtn.addEventListener("click", () => {
   video.muted = !video.muted;
-  muteBtn.textContent = video.muted ? "Unmute" : "Mute";
+
+  if (video.muted) {
+    muteImg.src =
+      "https://img.icons8.com/ios-glyphs/30/no-audio--v1.png";
+    muteImg.alt = "Audio muted";
+    muteBtn.setAttribute("aria-label", "Unmute audio");
+  } else {
+    muteImg.src =
+      "https://img.icons8.com/ios-glyphs/30/high-volume--v2.png";
+    muteImg.alt = "Audio on";
+    muteBtn.setAttribute("aria-label", "Mute audio");
+  }
 });
 
 /*
@@ -121,10 +135,10 @@ muteBtn.addEventListener("click", () => {
 fullscreenBtn.addEventListener("click", () => {
   if (!document.fullscreenElement) {
     videoContainer.requestFullscreen();
-    fullscreenBtn.textContent = "Exit Fullscreen";
+    fullscreenBtn.setAttribute("aria-label", "Exit fullscreen");
   } else {
     document.exitFullscreen();
-    fullscreenBtn.textContent = "Fullscreen";
+    fullscreenBtn.setAttribute("aria-label", "Enter fullscreen");
   }
 });
 
@@ -156,4 +170,29 @@ navButtons.forEach((button) => {
       view.hidden = view.id !== selectedSection;
     });
   });
+});
+
+/*
+  The slider updates the video's volume while the user moves it.
+  The input event is suitable for range controls because it responds
+  immediately to user interaction.
+
+  MDN references:
+  https://developer.mozilla.org/en-US/docs/Web/API/Element/input_event
+  https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/volume
+*/
+
+volumeSlider.addEventListener("input", () => {
+  const selectedVolume = Number(volumeSlider.value);
+
+  video.volume = selectedVolume;
+
+  if (selectedVolume === 0) {
+    video.muted = true;
+  } else {
+    video.muted = false;
+    previousVolume = selectedVolume;
+  }
+
+  updateVolumeIcon();
 });

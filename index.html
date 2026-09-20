@@ -72,12 +72,51 @@
         <span id="progress-bar-fill"></span>
       </div>
 
+       <!--
+    The range input allows the user to control the video volume.
+    The value is between 0 and 1.
+
+    MDN references:
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/range
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/volume
+  --> 
+    <div class="volume-control">
+    <img
+      src="https://img.icons8.com/ios-glyphs/30/low-volume.png"
+      alt="Low volume"
+    />
+
+    <input
+      id="volume-slider"
+      type="range"
+      min="0"
+      max="1"
+      step="0.01"
+      value="1"
+      aria-label="Volume"
+    />
+
+    <img
+      src="https://img.icons8.com/ios-glyphs/30/high-volume--v1.png"
+      alt="High volume"
+    />
+  </div>
+
+
       <button id="mute-btn" type="button">
-        Mute
+       <img
+         id="mute-img"
+         src="https://img.icons8.com/ios-glyphs/30/high-volume--v2.png"
+         alt="Audio on"
+       />
       </button>
 
       <button id="fullscreen-btn" type="button">
-        Fullscreen
+        <img
+      id="fullscreen-img"
+      src="https://img.icons8.com/ios-glyphs/30/full-screen--v1.png"
+      alt="Fullscreen"
+    />
       </button>
     </div>
   </div>
@@ -201,9 +240,15 @@
   <div id="about-info-view" class="info-view" hidden>
     <h2>About this video</h2>
     <p>
-      This website presents a cover music video through a custom
-      media player interface.
-    </p>
+  KiLLKiSS is a cover music video by Yoiharu, reinterpreting
+  the original song by Ave Mujica.
+</p>
+
+<p>
+  The interface uses a dark theatre-like atmosphere, with deep
+  red accents for performance energy and gold details to guide
+  navigation and playback feedback.
+</p>
   </div>
 
   <!-- Credits information -->
@@ -214,8 +259,37 @@
       Media Assignment 2.
     </p>
     <p>
+  Yoiharu on
+  <a
+    href="https://www.instagram.com/yoi9haru/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Instagram
+  </a>
+</p>
+ <h3>Music Team</h3>
+  <ul class="credits-list">
+<li>Lead vocals: Gu</li>
+<li>Lead guitar: NOMAD</li>
+<li>Rhythm guitar: Mashu</li>
+<li>Keyboard: introc</li>
+<li>Bass: Ako</li>
+<li>Drums: Midi (tuned by NOMAD) / Sixty-one (on camera)</li>
+<li>Backing vocals: Gu / Aver (tuned by NOMAD)</li>
+<li>Arrangement and mixing: NOMAD</li>
+  </ul>
+<h3>Visual Team</h3>
+  <ul class="credits-list">
+<li>Director: Gu</li>
+<li>Planning: Gu / Xiao Ni / Lan</li>
+<li>Cinematography: Chuhua / Xiao Ni / Lan / introc</li>
+<li>Editing: Gu</li>
+  </ul>
+    <p>
       Original song: “KiLLKiSS” by Ave Mujica.
     </p>
+  
   </div>
 </div>
 </section>
@@ -225,10 +299,12 @@
 
     <footer>
       <p>Music Video Player · Assignment 2</p>
-      <a href="https://icons8.com/icon/59862/play">Play</a> icon by
-      <a href="https://icons8.com">Icons8</a>
-      <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
-      <a href="https://icons8.com">Icons8</a>
+     <p>
+    Interface icons by
+    <a href="https://icons8.com" target="_blank" rel="noopener noreferrer">
+      Icons8
+    </a>
+  </p>
     </footer>
   </body>
 </html>
