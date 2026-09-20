@@ -196,3 +196,21 @@ volumeSlider.addEventListener("input", () => {
 
   updateVolumeIcon();
 });
+
+video.addEventListener("loadedmetadata", () => {
+  console.log("Video loaded successfully");
+});
+
+video.addEventListener("error", () => {
+  console.log("Video failed to load:", video.error);
+});
+
+function togglePlayPause() {
+  if (video.paused || video.ended) {
+    video.play().catch((error) => {
+      console.error("Playback failed:", error);
+    });
+  } else {
+    video.pause();
+  }
+}
